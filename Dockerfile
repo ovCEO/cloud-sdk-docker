@@ -35,4 +35,8 @@ RUN apt-get -qqy update && apt-get install -qqy \
     gcloud config set metrics/environment github_docker_image && \
     gcloud --version && \
     docker --version && kubectl version --client
+# Install helm
+RUN curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh \
+  && chmod 700 get_helm.sh \
+  && ./get_helm.sh
 VOLUME ["/root/.config"]
